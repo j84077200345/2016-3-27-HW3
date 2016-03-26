@@ -7,7 +7,7 @@ output: ioslides_presentation
 #NBA 2014-2015球季 各隊分析
 
 ##把NBA14-15的資料讀進來
-```{r results='hide',message=FALSE,cache=T}
+
 if (!require('SportsAnalytics')){
     install.packages("SportsAnalytics")
     library(SportsAnalytics)
@@ -18,7 +18,7 @@ install.packages("data.table")
 library(data.table)
 
 ##各隊最辛苦的球員
-```{r results='hide',message=FALSE,cache=T}
+
 MaxPlayed<-aggregate(TotalMinutesPlayed~Team,NBA1415,max)
 #tapply(NBA1415$TotalMinutesPlayed,NBA1415$Team,max)
 NBA1415MaxPlayed<-merge(NBA1415,MaxPlayed)
@@ -27,7 +27,7 @@ library(knitr)
 kable(output, digits=2)
 
 ##各隊得分王
-```{r results='hide',message=FALSE,cache=T}
+
 MaxPoint<-aggregate(TotalPoints~Team,NBA1415,max)
 #tapply(NBA1415$TotalPoints,NBA1415$Team,max)
 NBA1415MaxPoint<-merge(NBA1415,MaxPoint)
@@ -36,7 +36,7 @@ library(knitr)
 kable(output, digits=2)
 
 ##各隊最有效率的球員
-```{r results='hide',message=FALSE,cache=T}
+
 NBA1415DT<-data.table(NBA1415)
 output<-NBA1415DT[,list(Efficiency=round(sum(TotalPoints)/sum(TotalMinutesPlayed),digits = 2)),
           by=list(Team,Name)] [order(Efficiency,decreasing = T)]
