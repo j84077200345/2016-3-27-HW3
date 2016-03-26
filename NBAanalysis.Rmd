@@ -8,7 +8,6 @@ output: ioslides_presentation
 
 ##把NBA14-15的資料讀進來
 ```{r results='hide',message=FALSE,cache=T}
->>>>>>> origin/master
 if (!require('SportsAnalytics')){
     install.packages("SportsAnalytics")
     library(SportsAnalytics)
