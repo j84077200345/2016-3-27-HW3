@@ -1,13 +1,12 @@
 ---
-title: "NBA 2014-2015²y©u ¦U¶¤¤ÀªR"
+title: "NBA 2014-2015çƒå­£ å„éšŠåˆ†æ"
 author: "B0244213"
-date: "2016¦~3¤ë26¤é—¥"
+date: "2016å¹´3æœˆ26æ—¥î£™"
 output: ioslides_presentation
 ---
 <<<<<<< HEAD
-##§âNBA14-15ªº¸ê®ÆÅª¶i¨Ó
+##æŠŠNBA14-15çš„è³‡æ–™è®€é€²ä¾†
 =======
-##NBA 2014-2015²y©u ¦U¶¤¤ÀªR
 ```{r results='hide',message=FALSE,cache=T}
 >>>>>>> origin/master
 if (!require('SportsAnalytics')){
@@ -19,7 +18,7 @@ NBA1415
 install.packages("data.table")
 library(data.table)
 
-##¦U¶¤³Ì¨¯­Wªº²y­û
+##å„éšŠæœ€è¾›è‹¦çš„çƒå“¡
 MaxPlayed<-aggregate(TotalMinutesPlayed~Team,NBA1415,max)
 #tapply(NBA1415$TotalMinutesPlayed,NBA1415$Team,max)
 NBA1415MaxPlayed<-merge(NBA1415,MaxPlayed)
@@ -27,7 +26,7 @@ output<-NBA1415MaxPlayed[order(NBA1415MaxPlayed$TotalMinutesPlayed,decreasing = 
 library(knitr)
 kable(output, digits=2)
 
-##¦U¶¤±o¤À¤ı
+##å„éšŠå¾—åˆ†ç‹
 MaxPoint<-aggregate(TotalPoints~Team,NBA1415,max)
 #tapply(NBA1415$TotalPoints,NBA1415$Team,max)
 NBA1415MaxPoint<-merge(NBA1415,MaxPoint)
@@ -35,13 +34,13 @@ output<-NBA1415MaxPoint[order(NBA1415MaxPoint$TotalPoints,decreasing = T),c("Tea
 library(knitr)
 kable(output, digits=2)
 
-##¦U¶¤³Ì¦³®Ä²vªº²y­û
+##å„éšŠæœ€æœ‰æ•ˆç‡çš„çƒå“¡
 NBA1415DT<-data.table(NBA1415)
 output<-NBA1415DT[,list(Efficiency=round(sum(TotalPoints)/sum(TotalMinutesPlayed),digits = 2)),
           by=list(Team,Name)] [order(Efficiency,decreasing = T)]
 library(knitr)
 kable(output, digits=2)
-##¦U¶¤¤T¤À²y¥X¤â³Ì·Çªº²y­û
+##å„éšŠä¸‰åˆ†çƒå‡ºæ‰‹æœ€æº–çš„çƒå“¡
 NBA1415DT<-data.table(NBA1415)
 output<-NBA1415DT[,list(ThreePerc=round(sum(ThreesMade)/sum(ThreesAttempted),digits = 2)),
           by=list(Team,Name)] [order(ThreePerc,decreasing = T)]
