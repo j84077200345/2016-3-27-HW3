@@ -102,6 +102,66 @@ for(team in unique(output$Team)){
   print(selectTeam[1])
 }
 ```
+   Team             Name Efficiency
+1:  OKL Russel Westbrook       0.82
+   Team         Name Efficiency
+1:  HOU James Harden       0.74
+   Team          Name Efficiency
+1:  GSW Stephen Curry       0.73
+   Team             Name Efficiency
+1:  SAC Demarcus Cousins       0.71
+   Team         Name Efficiency
+1:  CLE Lebron James        0.7
+   Team            Name Efficiency
+1:  NYK Carmelo Anthony       0.68
+   Team          Name Efficiency
+1:  NOR Anthony Davis       0.67
+   Team         Name Efficiency
+1:  MEM Tyrus Thomas       0.67
+   Team        Name Efficiency
+1:  MIA Dwyane Wade       0.67
+   Team             Name Efficiency
+1:  POR Lamarcu Aldridge       0.66
+   Team        Name Efficiency
+1:  LAL Kobe Bryant       0.65
+   Team          Name Efficiency
+1:  BOS Isaiah Thomas       0.64
+   Team          Name Efficiency
+1:  LAC Blake Griffin       0.62
+   Team           Name Efficiency
+1:  TOR Louis Williams       0.62
+   Team         Name Efficiency
+1:  PHO Gerald Green       0.61
+   Team         Name Efficiency
+1:  MIN Kevin Martin        0.6
+   Team        Name Efficiency
+1:  BRO Brook Lopez       0.59
+   Team         Name Efficiency
+1:  CHI Derrick Rose       0.59
+   Team             Name Efficiency
+1:  DAL Charl Villanueva       0.59
+   Team        Name Efficiency
+1:  IND Paul George       0.58
+   Team        Name Efficiency
+1:  PHI Tony Wroten       0.57
+   Team           Name Efficiency
+1:  UTA Gordon Hayward       0.56
+   Team           Name Efficiency
+1:  ORL Nikola Vucevic       0.56
+   Team          Name Efficiency
+1:  CHA Jannero Pargo       0.55
+   Team             Name Efficiency
+1:  DET Brandon Jennings       0.54
+   Team             Name Efficiency
+1:  DEN Danilo Gallinari       0.52
+   Team          Name Efficiency
+1:  SAN Kawhi Leonard       0.52
+   Team        Name Efficiency
+1:  ATL Jeff Teague       0.52
+   Team           Name Efficiency
+1:  MIL Ersan Ilyasova       0.51
+   Team      Name Efficiency
+1:  WAS John Wall       0.49
 ##各隊三分球出手最準的球員
 ```{r}
 NBA1415DT<-data.table(NBA1415)
