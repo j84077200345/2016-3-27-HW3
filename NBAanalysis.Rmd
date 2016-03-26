@@ -4,9 +4,9 @@ author: "B0244213"
 date: "2016年3月26日"
 output: ioslides_presentation
 ---
-<<<<<<< HEAD
+#NBA 2014-2015球季 各隊分析
+
 ##把NBA14-15的資料讀進來
-=======
 ```{r results='hide',message=FALSE,cache=T}
 >>>>>>> origin/master
 if (!require('SportsAnalytics')){
