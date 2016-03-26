@@ -1,4 +1,5 @@
-##§âNBA14-15ªº¸ê®ÆÅª¶i¨Ó
+##æŠŠNBA14-15çš„è³‡æ–™è®€é€²ä¾†
+```{r results='hide',message=FALSE,cache=T}
 if (!require('SportsAnalytics')){
   install.packages("SportsAnalytics")
   library(SportsAnalytics)
@@ -7,32 +8,38 @@ NBA1415<-fetch_NBAPlayerStatistics("14-15")
 NBA1415
 install.packages("data.table")
 library(data.table)
-
-##¦U¶¤³Ì¨¯­Wªº²y­û
+```
+##å„éšŠæœ€è¾›è‹¦çš„çƒå“¡
+```{r}
 MaxPlayed<-aggregate(TotalMinutesPlayed~Team,NBA1415,max)
 #tapply(NBA1415$TotalMinutesPlayed,NBA1415$Team,max)
 NBA1415MaxPlayed<-merge(NBA1415,MaxPlayed)
 output<-NBA1415MaxPlayed[order(NBA1415MaxPlayed$TotalMinutesPlayed,decreasing = T),c("Team","Name","TotalMinutesPlayed")]
 library(knitr)
 kable(output, digits=2)
-
-##¦U¶¤±o¤À¤ý
+```
+##å„éšŠå¾—åˆ†çŽ‹
+```{r}
 MaxPoint<-aggregate(TotalPoints~Team,NBA1415,max)
 #tapply(NBA1415$TotalPoints,NBA1415$Team,max)
 NBA1415MaxPoint<-merge(NBA1415,MaxPoint)
 output<-NBA1415MaxPoint[order(NBA1415MaxPoint$TotalPoints,decreasing = T),c("Team","Name","TotalPoints")]
 library(knitr)
 kable(output, digits=2)
-
-##¦U¶¤³Ì¦³®Ä²vªº²y­û
+```
+##å„éšŠæœ€æœ‰æ•ˆçŽ‡çš„çƒå“¡
+```{r}
 NBA1415DT<-data.table(NBA1415)
 output<-NBA1415DT[,list(Efficiency=round(sum(TotalPoints)/sum(TotalMinutesPlayed),digits = 2)),
                   by=list(Team,Name)] [order(Efficiency,decreasing = T)]
 library(knitr)
 kable(output, digits=2)
-##¦U¶¤¤T¤À²y¥X¤â³Ì·Çªº²y­û
+```
+##å„éšŠä¸‰åˆ†çƒå‡ºæ‰‹æœ€æº–çš„çƒå“¡
+```{r}
 NBA1415DT<-data.table(NBA1415)
 output<-NBA1415DT[,list(ThreePerc=round(sum(ThreesMade)/sum(ThreesAttempted),digits = 2)),
                   by=list(Team,Name)] [order(ThreePerc,decreasing = T)]
 library(knitr)
 kable(output, digits=2)
+```
