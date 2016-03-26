@@ -96,8 +96,11 @@ kable(output, digits=2)
 NBA1415DT<-data.table(NBA1415)
 output<-NBA1415DT[,list(Efficiency=round(sum(TotalPoints)/sum(TotalMinutesPlayed),digits = 2)),
                   by=list(Team,Name)] [order(Efficiency,decreasing = T)]
-library(knitr)
-kable(output, digits=2)
+unique(output$Team)
+for(team in unique(output$Team)){
+  selectTeam<-subset(output,Team==team)
+  print(selectTeam[1])
+}
 ```
 ##各隊三分球出手最準的球員
 ```{r}
